@@ -1,0 +1,96 @@
+#Task1
+def division(number_1, number_2):
+    try:
+        return number_1 / number_2
+    except ZeroDivisionError:
+        print("Деление на ноль невозможно")
+
+a = input("Введите 2  целых числа через пробел\n").split()
+
+print(division(int(a[0]),int(a[1])))
+
+
+
+
+#Task2
+def info(name, surname, year, city, email, phone):
+    print(f"name: {name}\n surname: {surname}\n date of birth: {year}\n city: {city}\n e-mail: {email}\n phone number: {phone}\n")
+
+info(
+    input("Введите имя\n"),
+    input("Введите фамилию\n"),
+    input("ведите дату рождения\n"),
+    input("Введите город проживания\n"),
+    input("Введите e-mail\n"),
+    input("Введите номер телефона\n")
+)
+
+#Task3
+def my_func(number1=0, number2=0, number3=0):
+    if number1 > number2:
+        if number3 > number2:
+            return number1 + number3
+        else:
+            return number1 + number2
+    else:
+        if number3 > number1:
+            return number2 + number3
+        else:
+            return number1 + number2
+
+
+print(my_func(10, 25, 111))
+
+
+#Task4
+a = input("Введите 2 числа через пробел\n").split()
+x = float(a[0])
+y = int(a[1])
+def my_func(x, y):
+    result = 1
+    for i in range(abs(y)):
+        result = result * x
+    if y >= 0:
+        return result
+    else:
+        return 1 / result
+print(my_func(x, y))
+
+#Task5
+
+# объявляем переменную для постоянного хранения всей суммы накоплением
+amount = 0
+# функция принимает значения ввиде списка, + объявляем глобальную переменную
+def summ(*number_list):
+    global total_summ
+    total_summ = 0
+    for number in number_list:
+        if number == "q": # если встречается специальный символ (q), то выводим amount + total_summ и завершаем программу
+            print(amount + total_summ)
+            exit()
+        else:
+            total_summ = total_summ + float(number)
+    return total_summ
+
+
+# цикл, выполняющийся непрерывно
+
+while True:
+    numbers = input("Введите числа через пробел\n").split()
+    summ(*numbers)
+    amount = amount + total_summ
+    print(amount)
+
+
+#Task6
+def int_func(*text):
+    for word in text:
+        word = str(word)[0].upper() + str(word)[1:]
+        print(word)
+words = input("Введите несколько слов с маленькой буквы через пробел\n")
+words = words.split()
+int_func(*words)
+
+
+
+
